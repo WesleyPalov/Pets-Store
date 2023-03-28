@@ -1,0 +1,57 @@
+<div class="product-page">
+
+<div class="ui menu" id="filter">
+  <a class="browse item active">
+    Filter Options
+    <i class="dropdown icon"></i>
+  </a>
+</div>
+<div class="ui fluid popup bottom left transition hidden">
+  <div class="ui four column relaxed equal height divided grid" id="filter-popup">
+    <div class="column">
+      <h4 class="ui header">Products</h4>
+      <div class="ui link list">
+        <a class="item" href="/products/sortbyPriceASC">Price Ascending</a>
+      <a class="item" href="/products/sortbyPriceDESC">Price Descending</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Name</h4>
+      <div class="ui link list">
+        <a class="item" href="/products/sortbyNameASC">Name Ascending</a>
+      <a class="item" href="/products/sortbyNameDESC">Name Descending</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Stock</h4>
+      <div class="ui link list">
+        <a class="item" href="/products/sortbyStockASC">Stock Ascending</a>
+      <a class="item" href="/products/sortbyStockDESC">Stock Descending</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Animal</h4>
+      <div class="ui link list">
+       <a class="item" href="/products/sortbyDog">Dog Products</a>
+      <a class="item" href="/products/sortbyCat">Cat Products</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  
+  <div class="fourteen wide column">
+<div class="ui special cards" id="products">
+  {{#each products as |product|}}
+  {{> productsCard}}
+  {{/each}}
+</div>
+</div>
+</div>
+
+  {{#each products as |product|}}
+  {{> productsModal}}
+  {{/each}}

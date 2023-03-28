@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluffy</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo/favicon-64.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+  <body>
+
+    <!-- Nav Section -->
+    <header class="header">
+      <nav class="navbar">
+        <a href="/" class="nav-logo"><img
+            src="/images/logo/fluffy.PNG"
+            alt=""
+          />
+          <p id="logo-tag">Stay Fluffy</p></a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/products" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+            <a href="/profile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" id="cart-icon">
+            <i class="large cart arrow down icon" id="cart"></i>
+          </li>
+          <li class="nav-item">
+            <div class="item">
+              <a href="/login"><div class="ui button" id="sign-up">Sign Up</div></a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <div class="item">
+              {{#if loggedIn}}
+              <a href="/"><div class="ui button" id="userLogout">Logout</div></a>
+              {{else}}
+              <a href="/login"><div class="ui button" id="login">Login</div></a>
+              {{/if}}
+            </div>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <section id="divider"></section>
+
+<body>
+  <div class="wrapper">
+    <div class="ui right sidebar inverted vertical menu" id="cart-menu">
+    {{#each products as |product|}}
+    {{> productCart}}
+    {{/each}}
+    </div>
+  </div>  
+
+    {{{body}}}
+
+</body>
+    <!-- Footer Section -->
+    <section class="footer">
+      <div class="ui left aligned grid">
+        <div class="eight wide column"><a href="/">Home</a>
+          <ul class="socials">
+            <li><a href="#"><i class="twitter icon"></i></a></li>
+            <li><a href="#"><i class="facebook icon"></i></a></li>
+            <li><a href="#"><i class="instagram icon"></i></a></li>
+            <li><a href="#"><i class="amazon icon"></i></a></li>
+            <li><a href="#"><i class="yelp icon"></i></a></li>
+          </ul>
+        </div>
+        <div class="four wide column"><a href="/products">Products</a></div>
+        <div class="four wide column"><a href="/profile">Profile</a></div>
+      </div>
+    </section>
+
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+    integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="/js/semantic.js"></script>
+  <script src="/js/userLogout.js"></script>
+</html>

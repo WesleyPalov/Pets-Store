@@ -1,0 +1,142 @@
+<section class="profile-bg">
+
+  <div class="ui two column grid" id="profile">
+
+    <div class="center aligned column" id="left-prof-col">
+      <div class="row">
+        <div class="ui left aligned raised segment" id="about">
+          <a class="ui ribbon label" id="ribbon-1">About</a>
+          <span><h2>{{user.username}}</h2></span>
+          <span><h3>{{user.email}}</h3></span>
+          
+          <h5>Share some information about your pet(s) and what they enjoy, products you have purchased for them, or products you may be on the look out for!</h5>
+{{!-- Bio Info Modal --}}
+        <div>
+          <button class="ui button" id="new-bio">Add Info</button>
+          <div class="ui modal 2">
+            <div class="header">Add Your Info</div>
+            <div class="content">
+              <form id="bio-form" class="ui form">
+                <div class="field">
+                  <label>Info</label>
+                  <input
+                    id="update-user-bio"
+                    type="text"
+                    name="info"
+                    placeholder="info"
+                  />
+                </div>
+                <button class="ui button" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+    <div class="bio">
+<h5>{{user.biography}}</h5>
+    </div>
+          
+        </div>
+      </div>
+      <div class="row">
+        
+        {{!-- Register Pet Modal --}}
+        <div class="ui container left aligned">
+          <button class="ui button active" id="new-pet">Add new pet</button>
+          <div class="ui modal">
+            <div class="header">Add New Pet</div>
+            <div class="content">
+              <form id="registeranimal-form" class="ui form">
+                <div class="field">
+                  <label>Pet Name</label>
+                  <input
+                    id="animalname-input-register"
+                    type="text"
+                    name="pet-name"
+                    placeholder="Pet Name"
+                  />
+                </div>
+                <div class="field">
+                  <label>Pet Age</label>
+                  <input
+                    id="animalage-input-register"
+                    type="text"
+                    name="pet-age"
+                    placeholder="Pet Age"
+                  />
+                </div>
+                <div class="field">
+                  <label>Type of Pet (please select)</label>
+                  <div class="ui fluid selection dropdown" id="dropdown">
+                    <input
+                      id="animalspecies-input-register"
+                      type="hidden"
+                      name="Type of Pet"
+                    />
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Type of Pet</div>
+                    <div class="menu">
+                      <div class="item" data-value="1">Dog</div>
+                      <div class="item" data-value="2">Cat</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Write Something About Your Pet</label>
+                  <input
+                    id="animaldescription-input-register"
+                    type="text"
+                    name="pet-Bio"
+                    placeholder="Pet Bio"
+                  />
+                </div>
+                <div class="field">
+                  <label>Pet Photo JPEG</label>
+                  <input
+                    type="text"
+                    name="pet-photo"
+                    placeholder="Pet Photo (optional)"
+                  />
+                </div>
+                <button class="ui button" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{{!-- Pet Profile Turnstile and Buttons--}}
+    <div class="center aligned column" id="right-prof-col">
+      <div class="ui people shape">
+        <div class="sides">
+          
+            {{#each user.animals as |animal|}}
+            {{> profilePet}}
+            {{/each}} 
+            
+        
+      </div>
+        </div>
+          <div class="ui container" id="prof-buttons">
+            <ui class="grid">
+              <div class="row">
+                <div class="column">
+                  <button class="ui button" id="rollback_left"><i
+                      class="angle left icon"
+                    ></i></button>
+                  <button class="ui button" id="rollback_right"><i
+                      class="angle right icon"
+                    ></i></button>
+              </div>
+            </ui>
+          </div>
+      </div>
+    </div>
+    
+
+  </div>
+</section>
+
+<script src="/js/updateBio.js"></script>
+<script src="/js/registerAnimal.js"></script>
